@@ -1,8 +1,6 @@
 package com.paymentsystem.lld.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,6 +8,8 @@ import java.util.Date;
 @Getter
 @Setter
 @AllArgsConstructor
+@ToString
+@Builder
 public class Transaction implements Serializable {
 
     private String id;

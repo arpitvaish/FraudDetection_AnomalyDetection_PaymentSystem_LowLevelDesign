@@ -1,12 +1,12 @@
 package com.paymentsystem.lld.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@ToString
+@Builder
 public class Browser {
 
     private BrowserType browserType;

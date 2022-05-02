@@ -5,9 +5,11 @@ import com.paymentsystem.lld.manager.AccountManager;
 import com.paymentsystem.lld.manager.CustomerManager;
 import com.paymentsystem.lld.model.Account;
 import com.paymentsystem.lld.model.Customer;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.UUID;
 
+@Configuration
 public class AccountsService {
 
     private final AccountManager accountManager;
@@ -18,7 +20,7 @@ public class AccountsService {
         this.customerManager = customerManager;
     }
 
-    public String createAccount(Customer customer, Account account) {
+    public Account createAccount(Customer customer, Account account) {
         String uuid = UUID.randomUUID().toString();
         String customerId = account.getCustomer().getId();
         try {
@@ -32,7 +34,7 @@ public class AccountsService {
 
     }
 
-    public Account getAccountDetails(Account account) {
-        return accountManager.getAccount(account.getId());
+    public Account getAccountDetails(String accountId) {
+        return accountManager.getAccount(accountId);
     }
 }

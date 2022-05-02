@@ -2,10 +2,12 @@ package com.paymentsystem.lld.rulesEngine;
 
 import com.paymentsystem.lld.exception.NoMatchingRuleFoundException;
 import com.paymentsystem.lld.model.Transaction;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Configuration
 public class RuleEngine {
 
     List<IRule<Transaction, Transaction>> rules;

@@ -1,9 +1,8 @@
 package com.paymentsystem.lld.rulesEngine;
 
-import com.paymentsystem.lld.exception.WithdrawlLimitException;
 import com.paymentsystem.lld.model.Transaction;
 
-public class TransactionLimitAmount implements IRule<Transaction,Transaction>{
+public class TransactionLimitAmount implements IRule<Transaction, Transaction> {
     @Override
     public boolean isApplicable(Transaction input) {
         double customerLimit = input.getAccount().getWithDrawLimit();
@@ -12,7 +11,8 @@ public class TransactionLimitAmount implements IRule<Transaction,Transaction>{
 
     @Override
     public Transaction execute(Transaction input) {
-        System.out.println("Transaction amount exceeds the allowed limit");
-        throw new WithdrawlLimitException();
+        input.setFraud(true);
+        input.setFraudType("Transaction limit");
+        return input;
     }
 }

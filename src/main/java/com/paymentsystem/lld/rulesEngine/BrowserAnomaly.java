@@ -11,7 +11,8 @@ public class BrowserAnomaly implements IRule<Transaction, Transaction> {
 
     @Override
     public Transaction execute(Transaction input) {
-        System.out.println("Browser type not applicable");
-        throw new BrowserNotSupportedException();
+        input.setAnomaly(true);
+        input.setAnomalyType("Browser Anomaly");
+        return input;
     }
 }

@@ -11,6 +11,8 @@ public class IPAddressAnomaly implements IRule<Transaction,Transaction> {
 
     @Override
     public Transaction execute(Transaction input) {
-        return null;
+        input.setAnomaly(true);
+        input.setAnomalyType("IP Address Anomaly");
+        return input;
     }
 }
